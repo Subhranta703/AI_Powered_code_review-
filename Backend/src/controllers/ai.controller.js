@@ -1,9 +1,9 @@
 const aiService = require('../services/ai.services');
 
-exports.getResponse = async (req, res) => {
+exports.getReview = async (req, res) => {
     try {
-        const prompt = req.query.prompt;
-        const result = await aiService.generateContent(prompt);
+        const code = req.body.code;
+        const result = await aiService.generateContent(code);
         res.json(result);
     } catch (error) {
         console.error(error);
