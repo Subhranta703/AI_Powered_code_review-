@@ -6,7 +6,7 @@ const app = express();
 
 // ✅ CORS should be before routes
 app.use(cors({
-    origin: 'http://localhost:3001', // frontend URL
+    origin: 'https://ai-powered-code-review-gold.vercel.app/', // frontend URL
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type']
 }));
