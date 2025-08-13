@@ -66,5 +66,4 @@ Built with **Node.js**, **Express**, **OpenAI API**, and **React.js** (Tailwind 
 > *"Code is like humor. When you have to explain it, it’s bad — but when it works, it’s magic."*
 
 
-## 📂 Project Structure
 
