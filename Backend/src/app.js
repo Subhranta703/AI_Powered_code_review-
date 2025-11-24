@@ -1,22 +1,20 @@
-const express = require('express');
-const aiRoutes = require('./routes/ai.routes');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
+const morgan = require("morgan");
+
+const authRoutes = require("./routes/auth.routes");
+const reviewRoutes = require("./routes/review.routes");
 
 const app = express();
 
-// ✅ CORS should be before routes
+app.use(express.json());
+app.use(morgan("dev"));
 app.use(cors({
-    origin: 'https://ai-powered-code-review-gold.vercel.app', // frontend URL
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type']
+  origin: ["http://localhost:3000", "http://localhost:3001"],
+  credentials: true
 }));
 
-app.use(express.json());
-
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
-
-app.use('/ai', aiRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/reviews", reviewRoutes);
 
 module.exports = app;
